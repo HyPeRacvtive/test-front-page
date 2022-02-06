@@ -1,0 +1,99 @@
+﻿@model test_front_page.Models.Messages
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+<section>
+    <div class="container">
+        <div class="alaqa-general-main" data-aos="fade-up" data-aos-duration="1000">
+            <p class="alaqa-heading text-center">Əlaqə</p>
+            <div class="row alaqa-main g-0">
+                <div class="col-12 col-lg-6 col-xl-7 ">
+                    <div class="left">
+                        <p>Bizə yaza bilərsiniz</p>
+
+                        @using (Ajax.BeginForm("SendMessage", new { Controller = "SendMail" }, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, OnBegin = "beginx", OnComplete = "completex", LoadingElementId = "formLoading2" }, new { @class = "row form-partner g-1 gx-5" }))
+
+                        {
+                            @Html.ValidationSummary(true)
+                            @Html.AntiForgeryToken()
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating mb-3">
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control", @required = true })
+                                    <label for="floatingInput" class="labels">Ad</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating mb-3">
+                                    @Html.TextBoxFor(x => x.SurName, new { @class = "form-control", @required = true })
+                                    <label for="floatingInput" class="labels">Soyad</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating mb-3">
+                                    @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @required = true, @type = "number", @maxlength = "12" })
+                                    <label for="floatingInput" class="labels">Telefon nömrəsi</label>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="form-floating mb-3">
+                                    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control", @required = true })
+                                    <label for="floatingInput" class="labels">E-mail</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control", @required = true })
+                                    <label for="floatingInput" class="labels">Mövzu</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating mb-3">
+                                    @Html.TextAreaFor(x => x.Message, new { @class = "form-control", @required = true })
+                                    <label for="floatingInput" class="labels">Mesajınız</label>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <button type="submit"
+                                        class="btn btn-send d-flex align-items-center justify-content-center">
+                                    Göndər
+                                </button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                @Html.Action("_Contact","Home")
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function beginx() {
+        $(".btn").attr("disabled", "true");
+    }
+    function completex(response) {
+        if (response.responseJSON.IsSuccess === true) {
+            Swal.fire({
+                icon: 'success',
+                text: 'Formunuz başarıyla gönderildi',
+                showConfirmButton: false,
+                timer: 2000
+            }).then(function () {
+                $('form').find("input[type=text],input[type=tel], textarea").val("");
+                $('.btn').removeAttr("disabled");
+            })
+        }
+        else {
+            Swal.fire({
+                icon: 'error',
+                text: 'Formunuz gönderimi sırasında bir sorun oluştu.',
+                showConfirmButton: false,
+                timer: 2000
+            }).then(function () {
+                $('.btn').removeAttr("disabled");
+            })
+        }
+    }
+</script>
+
+
+

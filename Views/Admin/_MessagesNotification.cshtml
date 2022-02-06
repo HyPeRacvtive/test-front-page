@@ -1,0 +1,66 @@
+﻿@model IEnumerable<test_front_page.Models.Messages>
+
+
+
+<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="ti-email"></i>
+    @if (Model.Any(x => x.IsRead != true))
+    {
+<div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>}
+</a>
+
+
+<div class="dropdown-menu dropdown-menu-end mailbox animated bounceInDown">
+    <ul>
+        <li>
+            @if (Model.Any(x => x.IsRead != true))
+            {
+<div class="drop-title"> @Model.Count(x=>x.IsRead==false) Yeni Mesajınız Var</div> }
+else
+{
+<div class="drop-title"> Hiç Yeni Mesajınız Yok</div>}
+        </li>
+        <li>
+            <div class="message-center">
+
+                @foreach (var Messages in Model)
+                {
+
+
+
+                    if (Messages.IsRead == true)
+                    {
+            <a href="/Admin/MessagesDetails/@Messages.Id">
+                <div class="btn btn-success btn-circle"><i class="far fa-envelope-open"></i></div>
+                <div class="mail-contnet">
+                    <h5>@Messages.Name @Messages.SurName</h5> <span class="mail-desc">@Messages.Subject</span> <span class="time">@Messages.Time</span>
+                </div>
+            </a> }
+        else
+        {
+            <a href="/Admin/MessagesDetails/@Messages.Id">
+                <div class="btn btn-danger btn-circle"><i class="far fa-envelope"></i></div>
+                <div class="mail-contnet">
+                    <h5>@Messages.Name @Messages.SurName</h5> <span class="mail-desc">@Messages.Subject</span> <span class="time">@Messages.Time</span>
+                </div>
+            </a>}
+
+
+
+
+
+    }
+
+
+
+
+            </div>
+        </li>
+        <li>
+            <a class="nav-link text-center link" href="/Admin/MessagesList"> <strong>Tüm Mesajları Gör</strong> <i class="fa fa-angle-right"></i> </a>
+        </li>
+    </ul>
+</div>
+
+
+

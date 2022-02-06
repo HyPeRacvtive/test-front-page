@@ -1,0 +1,133 @@
+﻿@model test_front_page.Models.Settings
+
+@{
+    ViewBag.Title = "GeneralSettings";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Genel Ayarlar</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/GeneralSettings/1">Ayarlar</a></li>
+                <li class="breadcrumb-item active">Genel Ayarlar</li>
+            </ol>
+
+
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("GeneralSettings", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İletişim Bilgilerini Güncelle</h4>
+
+
+                    <div class="form-group">
+                        <label>Telefon Numarası</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="fa fa-phone form-control"></i></span>
+                            </div>
+                            <input type="text" class=" form-control" name="Phone" value="@Model.Phone" placeholder="Telefon Numarası" aria-label="Username" aria-describedby="basic-addon11">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mail Adresi</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon22"><i class="ti-email form-control"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="Mail" value="@Model.Mail" placeholder="Mail Adresi" aria-label="Email" aria-describedby="basic-addon22">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="fas fa-map-marker-alt form-control"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Adres" name="Address" value="@Model.Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Google Map</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="fas fa-google form-control"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Google Map" name="Map" value="@Model.Map">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            
+
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Logo Güncelle</h4>
+                    <div class="form-group">
+                        <label>Profil Resmi</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="far fa-image form-control"></i></span>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="file" name="Logo" value="@Model.Logo" required class="form-control" />
+
+                            </div>
+                            <div class="col-lg-2">
+                                <img src="~/Content/img/Logo/@Model.Logo" width="100" height="100" alt="Alternate Text" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Lahiyeler Yazısı Güncelle</h4>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Lahiyeler Yazısı</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon22"><i class="fas fa-address-book form-control"></i></span>
+                            </div>
+                            @Html.TextAreaFor(x => x.ProjectText, new { @class = "form-control", @placeholder = "Lahiyeler" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            <div class="w-100">
+                <hr class=" danger" />
+                <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+                <a class="btn btn-danger" href="/Admin">İptal</a>
+            </div>
+        </div>
+
+}
+
+
+
+
+

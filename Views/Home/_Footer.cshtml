@@ -1,0 +1,67 @@
+﻿@model test_front_page.Models.Settings
+
+<div class="container">
+    <div class="row mx-auto footer-top g-0">
+        <div class="col-12 mx-auto  mx-lg-0 col-lg-2">
+            <div class="footer-logo d-block text-center text-lg-start">
+                <img class="svg" src="~/Content/img/Logo/@Html.Action("_Logo","Home")" alt="">
+            </div>
+        </div>
+        <div class="row col-12 offset-lg-2 offset-xl-3  col-lg-8 col-xl-7 g-0">
+            <div class="col-12 col-lg-7 col-xl-6 ms-auto">
+                <p class="heading">Menu</p>
+                <ul class="footer-menu-list">
+                    <li class="footer-menu-item">
+                        <a href="/" class="footer-menu-links">
+                            Ana Səhifə
+                        </a>
+                    </li>
+                    <li class="footer-menu-item">
+                        <a href="/Home/Lahiyeler" class="footer-menu-links">
+                            Layihələr
+                        </a>
+                    </li>
+                    <li class="footer-menu-item">
+                        <a href="/Home/Alaqa" class="footer-menu-links">
+                            Əlaqə
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-3 mb-3 mb-lg-0">
+                <p class="heading">Əlaqə</p>
+                <div class="footer-alaqa">
+                    <a href="tel:0800" class="footer-alaqa-items d-flex align-items-center mb-4">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span class="d-block ms-2">@Model.Phone</span>
+                    </a>
+                    <a href="mailto:mail@mail.com" class="footer-alaqa-items d-flex align-items-center">
+                        <i class="bi bi-envelope-fill"></i>
+                        <span class="d-block ms-2">@Model.Mail</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 col-xl-1 mb-4 mb-lg-0">
+                <div class="dropdown footer-down">
+                    <span class="btn btn-footer-lang" type="button" id="footerlang" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                        <i class="bi bi-globe2"></i>
+                        <span class="position-relative">AZ</span>
+                    </span>
+                    <ul class="dropdown-menu js-down" aria-labelledby="footerlang">
+                        <li><a class="dropdown-item" href="#">EN</a></li>
+                        <li><a class="dropdown-item" href="#">RU</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-alt-main d-flex flex-column flex-md-row justify-content-center align-items-center align-items-lg-end
+            justify-content-between">
+        @Html.Action("_Social","Home")
+
+        <p>© Copyright @DateTime.Now.Year Azersun. All right reserved </p>
+    </div>
+</div>

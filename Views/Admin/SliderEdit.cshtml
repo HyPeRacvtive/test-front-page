@@ -1,0 +1,65 @@
+﻿@model test_front_page.Models.Sliders
+@{
+    ViewBag.Title = "SliderEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Slider Düzenle</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/SliderList">Slider'lar'</a></li>
+                <li class="breadcrumb-item active">Slider Düzenle</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/SliderCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-image text-warning"></i> Slider ekle</button>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("SliderEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-body">
+                <h5 class="card-title">Ürün Bilgileri</h5>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Başlık</label>
+                            @Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">İçerik</label>
+
+                            @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="control-label">Resim Ekle</label>
+
+                            <input type="file" required class="form-control" name="Image" value="" />
+
+                        </div>
+                    
+                    </div>
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+            <a class="btn btn-danger" href="/Admin">İptal</a>
+        </div>
+        
+
+    </div>
+}
+

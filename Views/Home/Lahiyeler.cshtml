@@ -1,0 +1,18 @@
+﻿@model test_front_page.Models.Settings
+
+<section>
+    <div class="container">
+        <div class="row align-items-center leyihalar-heading-main g-3 g-xl-0">
+            <div class="col-12 col-lg-2">
+                <p class="lahiyeler-heading">Layihələr</p>
+            </div>
+            <div class="col-12 col-lg-10">
+                <p class="layihaler-text">
+                @Model.ProjectText
+                </p>
+            </div>
+        </div>
+        @Html.Action("_Videos","Home")
+
+    </div>
+</section>

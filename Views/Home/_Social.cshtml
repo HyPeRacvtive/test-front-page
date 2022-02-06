@@ -1,0 +1,88 @@
+﻿@model test_front_page.Models.SocialMedia
+
+
+@if (Request.Path == "/Home/Alaqa")
+{
+    <ul class="social-list d-flex align-items-center">
+        @if (Model.FaceBook != null)
+        {
+            <li>
+                <a href="@Model.FaceBook" class="social-item d-flex align-items-center justify-content-center">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </li>
+        }
+        @if (Model.Youtube != null)
+        {
+            <li>
+                <a href="@Model.Youtube" class="social-item d-flex align-items-center justify-content-center">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </li>
+        }
+
+        @if (Model.Instagram != null)
+        {
+            <li>
+                <a href="@Model.Instagram" class="social-item d-flex align-items-center justify-content-center">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <ul class="d-flex mb-3 mb-md-0">
+
+
+        @if (Model.FaceBook != null)
+        {
+            <li class="me-3">
+                <a href="@Model.FaceBook" class="footer-lang d-flex align-items-center justify-content-center">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            </li>
+        }
+
+        @if (Model.Youtube != null)
+        {
+            <li class="me-3">
+                <a href="@Model.Youtube" class="footer-lang d-flex align-items-center justify-content-center">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </li>
+        }
+
+        @if (Model.Instagram != null)
+        {
+            <li class="me-3">
+                <a href="@Model.Instagram" class="footer-lang d-flex align-items-center justify-content-center">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </li>
+        }
+
+
+
+
+
+    </ul>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

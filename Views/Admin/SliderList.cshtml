@@ -1,0 +1,84 @@
+﻿@model  IEnumerable<test_front_page.Models.Sliders>
+
+@{
+    ViewBag.Title = "SliderList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">SLiDERLAR</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/SliderList">Slider'lar</a></li>
+                <li class="breadcrumb-item active">Slider Listesi</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/SliderCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-image text-warning"></i> Slider ekle</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table product-overview" id="myTable">
+                        <thead>
+
+                            <tr>
+                                <th>Başlık</th>
+                                <th>Resim</th>
+                                <th>İçerik</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var slider in Model)
+                            {
+                                <tr>
+                                    <td>@slider.Header</td>
+                                    <td> <img src="~/Content/img/Slider/@slider.Image" alt="Ürün Resim" width="80"> </td>
+                                    <td>@slider.Content</td>
+                                    @if (slider.Statu)
+                                    {
+                                        <td> <span class="label label-success font-weight-100">Aktif</span> </td>
+                                    }
+                                    else
+                                    {
+                                        <td> <span class="label label-danger font-weight-100">Pasif</span> </td>
+                                    }
+
+
+                                    <td>
+                                        <a href="/Admin/SliderEdit/@slider.Id" class="text-inverse p-r-10" data-toggle="tooltip" title="Düzenle"><i class="ti-marker-alt text-success"></i></a>
+                                        <a href="/Admin/SliderDelete/@slider.Id" class="text-inverse" title="Sil" data-toggle="tooltip"><i class="ti-trash text-danger"></i></a>
+                                    </td>
+                                    <td>
+                                        @if (!slider.Statu)
+                                        {
+                                            <a class="btn btn-success btn-sm" href="/Admin/SliderConfirm/@slider.Id">Aktifleştir</a> }
+                                        else
+                                        {
+                                            <a class="btn btn-danger btn-sm" href="/Admin/SliderUnConfirm/@slider.Id">Pasifleştir</a>}
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

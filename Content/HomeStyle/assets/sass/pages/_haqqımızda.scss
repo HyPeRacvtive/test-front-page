@@ -1,0 +1,36 @@
+.haqqımızda-heading { position: relative; height: 700px; @include desktop-sm { height: 496px; }
+
+    @include mobile-display { height: 386px; }
+
+    &::before { content: ''; width: 100%; height: 100%; position: absolute; top: 0; background-color: rgba(14, 10, 67, 0.6); }
+
+    img { width: 100%; height: 100%; 
+        object-fit: cover; }
+
+    p { @include font-size(50px); font-family: $semibold; color: #fff; top: 40% !important; }
+
+    .svg-afters { position: absolute; bottom: 0px; width: 100%; height: 127px; overflow: hidden; @include desktop-sm { height: 118px; bottom: -22px; }
+
+        @include mobile-display { position: absolute; bottom: -10px; width: 100%; height: 96px; overflow: hidden; }
+    }
+}
+
+.haqqımızda-main { position: relative; top: -157px; @include desktop-sm { @include padding(40px 0); top: 0px; }
+
+    @include mobile-display { @include padding(80px 0 120px); margin-bottom: 70px; top: 0px; }
+
+    .left-haq {
+        p { font-size: 20px; font-family: $regular; line-height: 24px; }
+    }
+
+    .right-haq { border-radius: 10px; border-top-right-radius: 35px; border-bottom-left-radius: 35px; overflow: hidden; 
+
+        img { width: 100%; height: 600px; 
+            object-fit: cover; @include desktop-l { height: 496px; }
+
+            @include desktop-sm { height: 418px; }
+
+            @include mobile-l { height: 398px; }
+        }
+    }
+}

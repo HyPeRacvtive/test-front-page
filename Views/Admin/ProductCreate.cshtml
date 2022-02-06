@@ -1,0 +1,93 @@
+﻿@model test_front_page.Models.Products
+
+@{
+    ViewBag.Title = "ProductCreate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Ürün Ekle</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/ProductList">Ürünler</a></li>
+                <li class="breadcrumb-item active">Ürün Ekle</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/ProductList'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-arrow-left text-warning"></i>Ürün Listesine Dön</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("ProductCreate", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-body">
+                        <h5 class="card-title">Ürün Bilgileri</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Ürün Adı</label>
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Genişlik</label>
+
+                                    @Html.EditorFor(model => model.Width, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Yükseklik</label>
+
+                                    @Html.EditorFor(model => model.Height, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Stok</label>
+
+                                    @Html.EditorFor(model => model.Stock, new { htmlAttributes = new { @class = "form-control" } })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Resim Ekle</label>
+
+                                    <input type="file" required class="form-control" name="Image" value="" />
+
+                                </div>
+                                <div class="form-group">
+                                    <br />
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.CheckBoxFor(model => model.Statu, new { @class = "custom-control-input", id = "Aktif" })
+                                        <label class="custom-control-label" for="Aktif">Durum</label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+              
+
+                    <hr>
+                    <div class="form-actions m-t-40">
+                        <button type="submit" class="btn btn-success"> <i class="ti ti-check"></i> Yayınla</button>
+                        <button type="button" onclick="window.location.href='/Admin/Index'" class="btn btn-danger"> <i class="fa fa-stop-circle"></i> Vazgeç</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

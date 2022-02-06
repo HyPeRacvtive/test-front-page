@@ -1,0 +1,8 @@
+﻿@model IEnumerable<test_front_page.Models.Messages>
+
+@if (Model.Any(x => x.IsRead != true) )
+{
+    <span class="badge rounded-pill bg-primary text-white ms-auto">@Model.Count() </span>
+
+}
+

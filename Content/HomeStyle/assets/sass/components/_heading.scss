@@ -1,0 +1,13 @@
+.partner-heading{text-align: center;
+    .smal-text{
+        color: #95bd00;
+        font-size: 17px;
+        font-family: $bold;
+    }
+    .heading{
+        @include font-size(35px);
+        font-family: $bold;
+        color: #000;
+        margin-bottom: 20px;
+    }
+}

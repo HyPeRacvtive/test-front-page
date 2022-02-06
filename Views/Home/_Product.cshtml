@@ -1,0 +1,42 @@
+﻿@model IEnumerable<test_front_page.Models.Products>
+
+
+<section class="home-mahsul-slider-section">
+    <div class="container">
+        <div class="home-slider-main">
+            <h4>Məhsullar</h4>
+            <div class="home-mahsul-slider owl-carousel owl-theme">
+
+                @foreach (var pro in Model)
+                {
+                    <a href="#" class="mahsul-card">
+                        <div class="card-top-text">
+                            <p class="mahsul-name">@pro.Name</p>
+                            <p class="olcu">Ölçü: @pro.Width*@pro.Height</p>
+                            <p class="aded">Ədəd sayı: @pro.Stock</p>
+                        </div>
+                        <img class="mahsul-image" src="~/Content/img/Product/@pro.Image" alt="">
+                        <span class="arrow d-flex align-items-center justify-content-center ">
+                            <i class="bi bi-arrow-right-short"></i>
+                        </span>
+                    </a>
+                }
+
+
+
+            </div>
+            <a href="#"
+               class="btn btn-mahsull-all d-flex align-items-center justify-content-center position-absolute end-0">
+                Bütün məhsullar
+            </a>
+        </div>
+
+    </div>
+    <div class="svg-afters">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none"
+             style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C143.06,24.19 438.20,119.91 504.79,27.14 L500.00,150.00 L0.00,150.00 Z"
+                  style="stroke: none; fill: #1c129d;"></path>
+        </svg>
+    </div>
+</section>

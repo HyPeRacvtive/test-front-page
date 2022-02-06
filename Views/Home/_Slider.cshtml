@@ -1,0 +1,29 @@
+﻿@model IEnumerable<test_front_page.Models.Sliders>
+
+<section class="home-header-section p-0">
+    <div class="home-header-slider owl-carousel owl-theme">
+       
+
+
+
+
+
+        @foreach (var slider in Model)
+        {
+        <div class="item">
+            <img src="~/Content/img/Slider/@slider.Image" alt="">
+            <div class="slider-text position-absolute top-50 start-50 translate-middle">
+                <p class="heading">"@slider.Header"</p>
+                <p class="texting">
+                   @slider.Content
+                </p>
+            </div>
+        </div>
+        }
+
+
+
+        
+        
+    </div>
+</section>

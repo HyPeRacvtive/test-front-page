@@ -1,0 +1,19 @@
+﻿@model IEnumerable<test_front_page.Models.Videos>
+
+
+<div class="layihe-card-main">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mt-3 my-sm-5 g-5 g-md-3 g-xl-4 g-xxl-5">
+
+
+        @foreach (var video in Model)
+        {
+            <div class="col">
+                <a href="@video.Link" class="leyihe-card" data-lity>
+                    <img src="~/Content/HomeStyle/assets/img/VideosImages/@video.Image" alt="">
+                    <i class="bi bi-play-btn-fill position-absolute top-50 start-50 translate-middle"></i>
+                </a>
+            </div>
+
+        }
+    </div>
+</div>

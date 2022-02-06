@@ -1,0 +1,22 @@
+﻿@model test_front_page.Models.Admin
+
+
+
+<div class="user-profile">
+    <div class="user-pro-body">
+        <div><img src="~/Content/AdminStyle/assets/img/@(Model.Image!=null?@Model.Image:"noimage.png")" alt="user-img" class="img-circle"></div>
+        <div class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Model.NameSurname<span class="caret"></span></a>
+            <div class="dropdown-menu animated flipInY">
+                <a href="/Admin/AdminProfile/@Model.Id" class="dropdown-item"><i class="ti-user"></i> Profilim</a>
+                <a href="/Admin/MessagesList" class="dropdown-item"><i class="ti-email"></i> Mesajlar</a>
+                <div class="dropdown-divider"></div>
+                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Site Ayarları</a>
+                <div class="dropdown-divider"></div>
+                <a href="/Security/LogOut" class="dropdown-item text-danger"><i class="ti-power-off text-danger"></i> Çıkış</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

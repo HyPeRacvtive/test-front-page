@@ -1,0 +1,36 @@
+﻿@model test_front_page.Models.Settings
+
+<div class="col-12 col-lg-6 col-xl-5">
+    <div class="right">
+        <p>Bizə yaza bilərsiniz</p>
+        <ul class="info-list">
+            <li>
+                <a href="#" class="info-item d-flex align-items-center">
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>@Model.Phone</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="info-item d-flex align-items-center">
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>@Model.Mail</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="info-item d-flex align-items-center">
+                    <i class="bi bi-geo-alt-fill"></i>
+                    <span>@Model.Address</span>
+                </a>
+            </li>
+        </ul>
+        @Html.Action("_Social", "Home")
+
+     
+
+
+        <div class="alaqa-map">
+            <iframe src="@Model.Map"
+                    width="100" height="100" style="border:0;" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>

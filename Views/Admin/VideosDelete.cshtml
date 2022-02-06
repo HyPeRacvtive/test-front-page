@@ -1,0 +1,40 @@
+﻿@model test_front_page.Models.Videos
+
+@{
+    ViewBag.Title = "VideosDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>Bu Videoyu Silmek İstediğinize Eminmisiniz</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Resim
+        </dt>
+
+        <dd>
+            <img width="200" height="200" src="~/Content/HomeStyle/assets/img/VideosImages/@Model.Image" alt="@Model.Image" />
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Link)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <button type="submit" class="btn btn-danger "><i class="fa fa-trash"></i>Videoyu Sil</button>
+    <button type="button" onclick="window.location.href='/Admin/VideosList'" class="btn btn-warning"> <i class="fa fa-stop-circle"></i> Vazgeç</button>
+</div>
+    }
+</div>

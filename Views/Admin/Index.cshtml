@@ -1,0 +1,146 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Dashboard</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/Index">Admin</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/ProductCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-shopping-bag text-warning"></i> Ürün ekle</button>
+            <button type="button" onclick="window.location.href='/Admin/VideosCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-video text-danger"></i> Video Ekle </button>
+            <button type="button" onclick="window.location.href='/Admin/SliderCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-images text-secondary"></i> Slider Ekle</button>
+
+        </div>
+    </div>
+</div>
+
+<div class="row g-0">
+
+
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card border">
+            <div class="card-body">
+                <div class="row">
+                    <a href="/Admin/ProductList">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <h3><i class="icon-bag"></i></h3>
+                                    <p class="text-muted">ÜRÜNLER</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <h2 class="counter text-success">@ViewBag.Product</h2>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: @ViewBag.Product%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card border">
+            <div class="card-body">
+                <div class="row">
+                    <a href="/Admin/MessagesList">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <h3><i class="icon-note"></i></h3>
+                                    <p class="text-muted">MESAJLAR</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <h2 class="counter text-warning">@ViewBag.Contact</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: @ViewBag.Contact%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="card border">
+            <div class="card-body">
+                <div class="row">
+                    <a href="/Admin/VideosList">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <h3><i class="icons-Video"></i></h3>
+                                    <p class="text-muted">VİDEOLAR</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <h2 class="counter text-danger">@ViewBag.Videos</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: @ViewBag.Videos%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card border">
+            <div class="card-body">
+                <div class="row">
+                    <a href="/Admin/SliderList">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div>
+                                    <h3><i class="icons-Picasa"></i></h3>
+                                    <p class="text-muted">SLİDERLAR</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <h2 class="counter text-cyan">@ViewBag.Slider</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="progress">
+                                <div class="progress-bar bg-cyan" role="progressbar" style="width: @ViewBag.Slider%; height: 6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+

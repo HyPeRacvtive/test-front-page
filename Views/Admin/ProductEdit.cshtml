@@ -1,0 +1,107 @@
+﻿@model test_front_page.Models.Products
+@{
+    ViewBag.Title = "ProductEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Ürün Düzenle</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/ProductList">Ürünler</a></li>
+                <li class="breadcrumb-item active">Ürün Düzenle</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/ProductCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-shopping-bag text-warning"></i> Ürün ekle</button>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("ProductEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>Ürün Adı</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon22"><i class="fas fa-shopping-bag form-control"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="Name" value="@Model.Name" placeholder="Stok" aria-label="Email" aria-describedby="basic-addon22">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Ürün Resmi</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon22"><i class="fas fa-image form-control"></i></span>
+                        </div>
+                        <input type="file" name="Image" class="form-control" required value="@Model.Image" />
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Ürün Genişliği (Örnek : 70)</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon22"><i class="fas fa-arrows-alt-h form-control"></i></span>
+                                </div>
+                                <input type="text" class="form-control" name="Width" value="@Model.Width" placeholder="Ürün Genişliği" aria-label="Email" aria-describedby="basic-addon22">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Ürün Yüksekliği(Örnek : 50)</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon22"><i class="fas fa-arrows-alt-v form-control"></i></span>
+                                </div>
+                                <input type="text" class="form-control" name="Height" value="@Model.Height" placeholder="Ürün Yüksekliği" aria-label="Email" aria-describedby="basic-addon22">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Stok</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon22"><i class="fas fa-sort-amount-up-alt form-control"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="Stock" value="@Model.Stock" placeholder="Stok" aria-label="Email" aria-describedby="basic-addon22">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Durum</label>
+                    <div class="input-group mb-3">
+                        @Html.CheckBoxFor(model => model.Statu, new { @class = "custom-control-input", id = "Statu" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+        <a class="btn btn-danger" href="/Admin">İptal</a>
+    </div>
+    <div class="col-lg-6">
+        <img src="~/Content/img/Product/@Model.Image"  alt="@Model.Name" />
+
+    </div>
+
+</div>
+}
+

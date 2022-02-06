@@ -1,0 +1,128 @@
+.navbar { @include padding(40px 0 0);
+    .navbar-main { @include mobile-display { height: 91px; }
+
+        .navbar-brand { width: 130px; 
+            @include desktop-sm { width: 85px; }
+
+            @include mobile-display { width: 85px; }
+
+            img,
+            .svg { @extend %img-size; }
+        }
+
+        .navicon { z-index: 5; height: 23px; top: 0px; right: 0px; position: relative; @include mobile-display { display: block !important; top: 1px; }
+
+            &::before { box-shadow: #000 0 14px 0 0; position: absolute; top: 0px; }
+
+            &::after { position: absolute; top: 7px; }
+
+            &::before,
+            &::after { background: #000; -webkit-backface-visibility: hidden; 
+                backface-visibility: hidden; content: ""; height: 3px; width: 25px; left: 0; border-radius: 5px; }
+        }
+
+        .navicon--active {
+
+            &::before { background: #fff; box-shadow: #fff 0 0 0 0; top: 9px; border-radius: 0px; -webkit-transform: rotate(225deg); transform: rotate(225deg); width: 25px !important; }
+
+            &::after { background: #fff; top: 9px; -webkit-transform: rotate(315deg); border-radius: 0px; transform: rotate(315deg); width: 25px !important; margin-left: inherit; }
+        }
+
+        .navbar-collapse { z-index: 4; height: 110px; @include desktop-sm { height: 85px; }
+
+            @include mobile-display { height: 100vh; transition: ease 0.4s all; position: fixed;
+                background-color: #1c129d; padding: 0 0px; box-shadow: 0 3px 25px rgba(37, 77, 128, 0.25); right: -100%; top: 0px; }
+
+            @include mobile-xl { width: 40%; }
+
+            @include mobile-l { width: 50%; }
+
+            .navbar-nav {
+
+                .nav-item { margin-right: 40px; 
+
+                    &:last-child { margin-right: 0px; 
+                        position: relative;
+                        top: 6px;
+                        .nav-link{
+                            padding-bottom: 10px;
+                        }
+                    }
+
+                    @include desktop-sm { margin-right: 20px; }
+
+                    @include mobile-display { width: 100%; height: fit-content; margin-right: 0px; margin-bottom: 25px; }
+
+                    .nav-link { color: #000; font-family: $regular; @include font-size(20px); 
+                        position: relative; cursor: pointer; padding: 0px; @include desktop-sm { font-size: 14px; }
+
+                        @include mobile-display { text-align: center; color: #fff; display: block !important; width: fit-content; margin: auto; }
+
+                        @include mobile-l { font-size: 16px; }
+
+                        &.active,
+                        &:hover { 
+                            &::before { width: 21px; visibility: visible; }
+                        }
+
+                        &::before { content: ''; width: 0px; height: 2px; position: absolute; top: -14px;
+                            transform: translate(-50%,-50%);
+                            left: 50%;
+                            border-radius: 15px;
+                            @extend %transition3; visibility: hidden; 
+                            background-color: #151515;
+
+                            @include mobile-display { bottom: -11px; background-color: #fff; color: #fff; }
+                        }
+
+                    }
+                }
+            }
+
+        }
+
+        .navbar-collapse--active { right: 0px; }
+    }
+}
+.navbar-absolute{
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    .navbar-main{
+        .navicon { 
+        &::before { box-shadow: #fff 0 14px 0 0;}
+
+        &::before,
+        &::after { background: #fff; }
+    }
+
+    .navicon--active {
+
+        &::before { background: #fff; box-shadow: #fff 0 0 0 0; }
+
+        &::after { background: #fff; }
+    }
+
+    .navbar-collapse { 
+
+        .navbar-nav {
+
+            .nav-item { 
+                .nav-link { color: #fff;
+                    &::before {
+                        background-color: #fff;
+                    }
+
+                }
+            }
+        }
+
+    }
+    }
+}
+.navbar-colors{
+    background-color: #f6f5fb;
+}
+section{
+    @include padding(40px 0 100px);
+}

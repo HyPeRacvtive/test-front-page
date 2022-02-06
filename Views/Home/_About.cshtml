@@ -1,0 +1,36 @@
+﻿@model test_front_page.Models.About
+
+<section class="home-about-section">
+
+
+    <div class="container">
+        <div class="row home-about-main g-5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="col-12 col-lg-6">
+                <div class="left">
+                    <h3>Haqqımızda</h3>
+                    <p>
+                        @Model.text
+                    </p>
+                </div>
+            </div>
+            <div class="col-12  col-lg-4 offset-lg-2">
+                <div class="right">
+                    <img class="img-fluid" src="~/Content/img/About/@Model.Image" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="svg-afters">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none"
+             style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C143.06,24.19 438.20,119.91 504.79,27.14 L500.00,150.00 L0.00,150.00 Z"
+                  style="stroke: none; fill: #fff"></path>
+        </svg>
+    </div>
+
+</section>
+
+

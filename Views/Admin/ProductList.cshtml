@@ -1,0 +1,83 @@
+﻿@model  IEnumerable<test_front_page.Models.Products>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Ürün Listesi</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-end">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="/Admin/ProductList">Ürünler</a></li>
+                <li class="breadcrumb-item active">Ürün Listesi</li>
+            </ol>
+            <button type="button" onclick="window.location.href='/Admin/ProductCreate'" class="btn btn-info d-none d-lg-block m-l-15 text-white"><i class="fa fa-shopping-bag text-warning"></i> Ürün ekle</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table product-overview" id="myTable">
+                        <thead>
+
+                            <tr>
+                                <th>Ürün Adı</th>
+                                <th>Resim</th>
+                                <th>Genişlik</th>
+                                <th>Yükseklik</th>
+                                <th>Stok</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var pro in Model)
+                            {
+                                <tr>
+                                    <td>@pro.Name</td>
+                                    <td> <img src="~/Content/img/Product/@pro.Image" alt="Ürün Resim" width="80"> </td>
+                                    <td>@pro.Width</td>
+                                    <td>@pro.Height</td>
+                                    <td>@pro.Stock</td>
+                                    <td>@pro.AddedDate</td>
+                                    @if (pro.Statu)
+                                    {
+                                        <td> <span class="label label-success font-weight-100">Aktif</span> </td>
+                                    }
+                                    else
+                                    {
+                                        <td> <span class="label label-danger font-weight-100">Pasif</span> </td>
+                                    }
+                               
+
+                                    <td>
+                                        <a href="/Admin/ProductEdit/@pro.Id" class="text-inverse p-r-10" data-toggle="tooltip" title="Düzenle"><i class="ti-marker-alt text-success"></i></a>
+                                        <a href="/Admin/ProductDelete/@pro.Id" class="text-inverse" title="Sil" data-toggle="tooltip"><i class="ti-trash text-danger"></i></a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+     Column 
+</div>
+
